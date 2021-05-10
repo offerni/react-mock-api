@@ -1,20 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { getUsers, addUser, editUser, deleteUser } from "./api/users/actions";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Homepage } from "./pages/Homepage";
+import { ArticlePage } from "./pages/Article";
 import reportWebVitals from "./reportWebVitals";
-
-(async () => {
-  try {
-    // getUsers().then((users) => console.log(users));
-    await deleteUser("1");
-  } catch (error) {
-    console.log(error);
-  }
-})();
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>hello</h1>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/article/:id">
+          <ArticlePage />
+        </Route>
+        <Route path="/">
+          <Homepage />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
