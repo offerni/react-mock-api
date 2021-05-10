@@ -1,14 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { getUsers, addUser, editUser, deleteUser } from "./api/users/actions";
+import reportWebVitals from "./reportWebVitals";
+
+(async () => {
+  try {
+    // getUsers().then((users) => console.log(users));
+    await deleteUser("1");
+  } catch (error) {
+    console.log(error);
+  }
+})();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <h1>hello</h1>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
